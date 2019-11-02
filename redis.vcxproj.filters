@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{c84c6394-a246-43ad-b4bd-465e5434d23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luastate">
+      <UniqueIdentifier>{b71d3242-d56d-4d7c-8d3c-67a32c2ba374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luastate\lua">
+      <UniqueIdentifier>{e9a914d3-8da8-4a1f-9b53-203837a779a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luastate\luabridge">
+      <UniqueIdentifier>{be1b04a6-eedd-45a4-8e24-82fd36562553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luastate\luabridge\detail">
+      <UniqueIdentifier>{c6ecc9db-4f1f-496f-b05c-104c4aace14c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{8f1781e6-4742-4666-8c49-d59c89f53a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http">
+      <UniqueIdentifier>{8b983f10-d1f6-4092-97c0-7037caa2837a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http\client">
+      <UniqueIdentifier>{b6adfbf6-e67b-4443-ad8d-4321445dcdff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="timer">
+      <UniqueIdentifier>{effd0a0b-6d1a-4428-981a-1b7f6c48c9bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dump">
+      <UniqueIdentifier>{16dc589c-f17a-41fe-b08b-f268c45c0d3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="redis">
+      <UniqueIdentifier>{73036411-66fc-493e-913d-47e89fd122db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="redis\hiredis">
+      <UniqueIdentifier>{6df5058a-b59c-485c-88e1-3488cb33d16f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http\server">
+      <UniqueIdentifier>{1ac4a6bf-1e3e-454c-8ac9-11de135e80c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pugixml">
+      <UniqueIdentifier>{66fd7f5a-a200-4827-beda-2c9654c1a77f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="iconvWin">
+      <UniqueIdentifier>{e1af7642-3e8e-42ab-81e5-6dfd1e8193fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{2d9a1262-8df6-4770-b58a-a0778c0a6a65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hallmsg">
+      <UniqueIdentifier>{32b2c2a2-a61b-4a48-ae92-3dd2036e53a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{58d5df39-6546-43c9-a4c5-f264823276ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="memory">
+      <UniqueIdentifier>{bf2f7097-e116-4c51-984f-2fc6a4e3bfd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="singleton">
+      <UniqueIdentifier>{2178bbdf-d05e-4a48-a058-8d3bbe057e8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{1c5507c5-27b3-4800-9ba9-381038ad1bc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\data">
+      <UniqueIdentifier>{0f1ddeba-4894-412f-bc85-68ce587a6137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\observable">
+      <UniqueIdentifier>{f1f2f4fb-0903-4acc-95e2-67c4f0e525c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\util">
+      <UniqueIdentifier>{12fc5cd7-890f-48ee-9d95-4a5e96f6122d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\net">
+      <UniqueIdentifier>{036a81e0-9fb9-4695-964c-c68f2cee55ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\net\inc">
+      <UniqueIdentifier>{51cb099c-8713-4d5d-811e-23f8febf1e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network\net\src">
+      <UniqueIdentifier>{d1f917f2-71ce-46d7-84a4-f82a22949c50}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\CommonDef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Function.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\lua_bridge.h">
+      <Filter>luastate</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ServerBase.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Service.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LuaState.h">
+      <Filter>luastate</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MoneyPool.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TimerHandler.h">
+      <Filter>timer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FileStackWalker.h">
+      <Filter>dump</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MiniDump.h">
+      <Filter>dump</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StackWalker.h">
+      <Filter>dump</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TimerHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ServiceMgr.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TimerMgr.h">
+      <Filter>timer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StringHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\win32fixes.h">
+      <Filter>redis\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zmalloc.h">
+      <Filter>redis\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Subscriber.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\adlist.h">
+      <Filter>redis\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ae.h">
+      <Filter>redis\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HClient.h">
+      <Filter>http\client</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Chan.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisClient.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisData.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HServer.h">
+      <Filter>http\server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HttpHead.h">
+      <Filter>http\server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XString.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pugiconfig.hpp">
+      <Filter>pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pugixml.hpp">
+      <Filter>pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lapi.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lauxlib.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lcode.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\ldebug.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\ldo.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lfunc.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lgc.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\llex.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\llimits.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lmem.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lobject.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lopcodes.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lparser.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lstate.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lstring.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\ltable.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\ltm.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lua.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\luaconf.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lualib.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lundump.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lvm.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\lua\lzio.h">
+      <Filter>luastate\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\CFunctions.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\ClassInfo.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\Constructor.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\dump.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\FuncTraits.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\Iterator.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\LuaException.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\LuaHelpers.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\LuaRef.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\Namespace.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\Stack.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\TypeList.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\TypeTraits.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\detail\Userdata.h">
+      <Filter>luastate\luabridge\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\LuaBridge.h">
+      <Filter>luastate\luabridge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\RefCountedObject.h">
+      <Filter>luastate\luabridge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plugin\luabridge\Source\LuaBridge\RefCountedPtr.h">
+      <Filter>luastate\luabridge</Filter>
+    </ClInclude>
+    <ClInclude Include="include\iconvWin.h">
+      <Filter>iconvWin</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Overflow.h">
+      <Filter>redis\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ServerConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GsMessage.h">
+      <Filter>hallmsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisMgr.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Serializer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisMessage.h">
+      <Filter>hallmsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DBConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LogMgr.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="include\allocator.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\malloc.c.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MemoryMgr.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\nedmalloc.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SingletonEx.h">
+      <Filter>singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ConsoleColor.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IPlayer.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Server.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="include\data\any.h">
+      <Filter>network\data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\data\property.h">
+      <Filter>network\data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\data\value.h">
+      <Filter>network\data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\file.h">
+      <Filter>network\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\mgr.h">
+      <Filter>network\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\str.h">
+      <Filter>network\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\observable\signal.h">
+      <Filter>network\observable</Filter>
+    </ClInclude>
+    <ClInclude Include="include\observable\signal2.h">
+      <Filter>network\observable</Filter>
+    </ClInclude>
+    <ClInclude Include="include\observable\slot.h">
+      <Filter>network\observable</Filter>
+    </ClInclude>
+    <ClInclude Include="include\watch.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bytes_pool.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cbuf_alloc.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\circular_buf.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\defines.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\file.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ihandler.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ipeer.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logger.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mem_pool.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mgr.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\monitor.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\net.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scheduler.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\session.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\session_mgr.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\singleton.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\str.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sub_mgr.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tcp_client.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tcp_server.h">
+      <Filter>network\net\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Function.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ServerBase.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Service.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimerHandler.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FileStackWalker.cpp">
+      <Filter>dump</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MiniDump.cpp">
+      <Filter>dump</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StackWalker.cpp">
+      <Filter>dump</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimerHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ServiceMgr.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimerMgr.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StringHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32fixes.c">
+      <Filter>redis\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\zmalloc.c">
+      <Filter>redis\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Subscriber.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\adlist.c">
+      <Filter>redis\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae.c">
+      <Filter>redis\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lua_bridge.cpp">
+      <Filter>luastate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LuaState.cpp">
+      <Filter>luastate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pb.c">
+      <Filter>luastate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HClient.cpp">
+      <Filter>http\client</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chan.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RedisClient.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HServer.cpp">
+      <Filter>http\server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HttpHead.cpp">
+      <Filter>http\server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pugixml.cpp">
+      <Filter>pugixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lapi.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lauxlib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lbaselib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lcode.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ldblib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ldebug.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ldo.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ldump.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lfunc.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lgc.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\linit.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\liolib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\llex.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lmathlib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lmem.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\loadlib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lobject.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lopcodes.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\loslib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lparser.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lstate.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lstring.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lstrlib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ltable.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ltablib.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\ltm.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lua.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\luac.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lundump.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lvm.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\lzio.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plugin\lua\print.c">
+      <Filter>luastate\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="src\iconvWin.cpp">
+      <Filter>iconvWin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ServerConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GsMessage.cpp">
+      <Filter>hallmsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RedisMgr.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Serializer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RedisMessage.cpp">
+      <Filter>hallmsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DBConfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LogMgr.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MemoryMgr.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="include\nedmalloc.c">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConsoleColor.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IPlayer.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="src\file.cpp">
+      <Filter>network\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\str.cpp">
+      <Filter>network\util</Filter>
+    </ClCompile>
+    <ClCompile Include="include\compile_singletons.cpp">
+      <Filter>network\net\inc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tcp_server.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bytes_pool.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\circular_buf.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logger.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\session.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\session_mgr.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tcp_client.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scheduler.cpp">
+      <Filter>network\net\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="..\plugin\lua\Makefile">
+      <Filter>luastate\lua</Filter>
+    </None>
+  </ItemGroup>
+</Project>

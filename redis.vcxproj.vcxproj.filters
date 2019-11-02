@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="hiredis">
+      <UniqueIdentifier>{ff15e70f-dfe3-481e-ad4a-8b0ce1f3da5c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\adlist.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ae.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Overflow.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\win32fixes.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zmalloc.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Chan.h" />
+    <ClInclude Include="include\RedisClient.h" />
+    <ClInclude Include="include\RedisData.h" />
+    <ClInclude Include="include\RedisMgr.h" />
+    <ClInclude Include="include\Subscriber.h" />
+    <ClInclude Include="include\RedisDefData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\adlist.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ae.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32fixes.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\zmalloc.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chan.cpp" />
+    <ClCompile Include="src\RedisClient.cpp" />
+    <ClCompile Include="src\RedisMgr.cpp" />
+    <ClCompile Include="src\Subscriber.cpp" />
+  </ItemGroup>
+</Project>
