@@ -4,6 +4,9 @@
     <Filter Include="hiredis">
       <UniqueIdentifier>{ff15e70f-dfe3-481e-ad4a-8b0ce1f3da5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="redisClusterConn">
+      <UniqueIdentifier>{46752932-7d03-4004-967f-a287c4932c90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\adlist.h">
@@ -27,6 +30,9 @@
     <ClInclude Include="include\RedisMgr.h" />
     <ClInclude Include="include\Subscriber.h" />
     <ClInclude Include="include\RedisDefData.h" />
+    <ClInclude Include="include\redisClusterConn.h">
+      <Filter>redisClusterConn</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\adlist.c">
@@ -45,5 +51,8 @@
     <ClCompile Include="src\RedisClient.cpp" />
     <ClCompile Include="src\RedisMgr.cpp" />
     <ClCompile Include="src\Subscriber.cpp" />
+    <ClCompile Include="src\redisClusterConn.cpp">
+      <Filter>redisClusterConn</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
