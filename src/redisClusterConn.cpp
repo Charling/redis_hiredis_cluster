@@ -175,45 +175,39 @@ namespace redis
 
 	redisReply* redisClusterConnCommand(redisClusterConn* conn, int argc, const char** argv, const size_t* argvlen)
 	{
-		redisReply* reply = 0;
-
+		redisReply* reply = nullptr;
 		redisContext* ctx = redisClusterConnGetActiveContext(conn, 0, 0);
-		if (ctx == 0) {
-			return 0;
+		if (ctx == nullptr) {
+			return nullptr;
 		}
 
 		reply = (redisReply *)redisCommandArgv(ctx, argc, argv, argvlen);
-
 		if (!reply) {
 			// 执行失败, 连接不能再被使用. 必须建立新连接!!
 			redisClusterConnCloseNode(conn, conn->node->index);
-			return 0;
+			return nullptr;
 		}
 
 		if (reply->type == REDIS_REPLY_ERROR) {
 			LOGERROR("REDIS_REPLY_ERROR:%s\n", reply->str);
 
 			if (strstr(reply->str, "MOVED ")) {
-				char * start = &(reply->str[6]);
-				char * end = strchr(start, 32);
+				char* start = &(reply->str[6]);
+				char* end = strchr(start, 32);
 
 				if (end) {
 					start = end;
 					++start;
 					*end = 0;
-
 					end = strchr(start, ':');
 
 					if (end) {
 						*end++ = 0;
-
 						LOGERROR("Redirected to slot [%s] located at [%s:%s]\n", &reply->str[6], start, end);
 
 						ctx = redisClusterConnGetActiveContext(conn, start, atoi(end));
-
 						if (ctx) {
 							freeReplyObject(reply);
-
 							return redisClusterConnCommand(conn, argc, argv, argvlen);
 						}
 					}
@@ -227,7 +221,6 @@ namespace redis
 				};
 
 				freeReplyObject(reply);
-
 				return redisClusterConnCommand(conn, 2, cmds, 0);
 			}
 		}

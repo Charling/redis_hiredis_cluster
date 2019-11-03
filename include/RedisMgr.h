@@ -30,7 +30,6 @@ namespace redis
 
 		static void Register(int ops, ops_handler handler);
 		bool start(const std::string& ip, int port);
-		bool startnow(const std::string& ip, int port);
 		void registerChan(const std::string& index);
 
 		inline Subscriber* getSubscriber() { return m_subscriber; }

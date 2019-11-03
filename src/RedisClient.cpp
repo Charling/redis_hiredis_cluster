@@ -12,10 +12,13 @@ namespace redis
 	{
 		m_recvText = nullptr;
 		m_sendText = nullptr;
+		m_recvClusterConn = nullptr;
+		m_sendClusterConn = nullptr;
 		m_mapChan.clear();
 
 		m_ip = "";
 		m_port = 0;
+		m_cluster = false;
 	}
 
 	RedisClient::~RedisClient()
@@ -33,31 +36,6 @@ namespace redis
 	{
 		uv_thread_create(&m_thread, &RedisClient::redisclient, (void*)this);
 
-		return true;
-	}
-
-	bool RedisClient::startnow()
-	{
-		do 
-		{
-			if (m_recvText == nullptr) {
-				if (!connect(&m_recvText)) {
-					LOGERROR("connect redis failed.");
-					BASE::dSleep(200);
-					continue;
-				}
-			}
-
-			if (m_sendText == nullptr) {
-				if (!connect(&m_sendText)) {
-					LOGERROR("connect redis failed.");
-					BASE::dSleep(200);
-					continue;
-				}
-			}
-
-			break;
-		} while (1);
 		return true;
 	}
 
@@ -127,11 +105,11 @@ namespace redis
 
 	void RedisClient::getValue(const std::string& key, int64& value)
 	{
-		if (m_recvText == nullptr) {
-			LOGERROR("m_recvText == nullptr.");
+		if (m_sendText == nullptr) {
+			LOGERROR("m_sendText == nullptr.");
 			return;
 		}
-		auto reply = (redisReply*)redisCommand(m_recvText, "GET %s", key.c_str());
+		auto reply = (redisReply*)redisCommand(m_sendText, "GET %s", key.c_str());
 		if (reply == nullptr) {
 			LOGERROR("reply == nullptr...");
 			return;
@@ -164,16 +142,7 @@ namespace redis
 			if (reply != nullptr)
 				freeReplyObject(reply);
 		}
-		{//m_recvText
-			if (m_recvText == nullptr) {
-				LOGERROR("m_sendText == nullptr.");
-				return false;
-			}
-			auto reply = redisCommand(m_recvText, "PING");
-			//printf("PING: %s\n", reply->str);
-			if (reply != nullptr)
-				freeReplyObject(reply);
-		}
+		
 		return true;
 	}
 
@@ -223,11 +192,11 @@ namespace redis
 
 	void RedisClient::getValue(const std::string& key, std::string& value)
 	{
-		if (m_recvText == nullptr) {
-			LOGERROR("m_recvText == nullptr.");
+		if (m_sendText == nullptr) {
+			LOGERROR("m_sendText == nullptr.");
 			return;
 		}
-		auto reply = (redisReply*)redisCommand(m_recvText, "GET %s", key.c_str());
+		auto reply = (redisReply*)redisCommand(m_sendText, "GET %s", key.c_str());
 		if (reply == nullptr) {
 			LOGERROR("reply == nullptr...");
 			return;

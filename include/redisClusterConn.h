@@ -41,8 +41,8 @@ namespace redis
 		struct timeval data;
 
 		char password[MaxPasswordLen];
-
 		int num;
+
 		redisClusterNode* nodes;
 	} redisClusterConn;
 

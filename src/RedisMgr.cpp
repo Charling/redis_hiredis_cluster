@@ -49,15 +49,6 @@ namespace redis
 		return true;
 	}
 
-	bool RedisMgr::startnow(const std::string& ip, int port)
-	{
-		m_redisClient->init(ip.c_str(), port);
-		if (!m_redisClient->startnow())
-			return false;
-
-		return true;
-	}
-
 	void RedisMgr::polling()
 	{
 		if (m_subscriber == nullptr || m_redisClient == nullptr)

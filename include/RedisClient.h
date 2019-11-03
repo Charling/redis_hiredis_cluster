@@ -12,6 +12,7 @@
 #include "RedisData.h"
 #include "Chan.h"
 #include "Function.h"
+#include "redisClusterConn.h"
 
 namespace redis
 {
@@ -24,12 +25,12 @@ namespace redis
 		RedisClient();
 		virtual ~RedisClient();
 		virtual bool start();
-		virtual bool startnow();
 		virtual void dispatch(redisContext* c, const stRedisData& redisData);
 		virtual void polling();
 
 	public:
 		void init(const char* ip, int port);
+
 		bool registerChan(Chan* chan);
 		void unregisterChan(const std::string& chanId);
 
@@ -42,29 +43,6 @@ namespace redis
 
 		static void redisclient(void* client);
 
-		//key-value:
-		/*
-			说明：key为string,value为json结构
-
-			序列化json:
-			rapidjson::Document doc;
-			doc.SetObject();
-			rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
-
-			//添加元素
-
-			rapidjson::StringBuffer buffer;
-			rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-			doc.Accept(writer);
-
-			auto data = buffer.GetString();
-
-			反序列化json:
-			rapidjson::Document doc;
-			if (!doc.Parse(data.c_str()).HasParseError()
-			&& doc.IsObject()) {
-			}
-		*/
 		void setValue(const std::string& key, std::string value);
 		void getValue(const std::string& key, std::string& value);
 
@@ -72,7 +50,7 @@ namespace redis
 		bool setValue(const std::string& key, const T& msg)
 		{
 			if (m_sendText == nullptr) {
-				LOGERROR("setValue m_recvText == nullptr.");
+				LOGERROR("setValue m_sendText == nullptr.");
 				return false;
 			}
 
@@ -130,8 +108,8 @@ namespace redis
 		template<typename T>
 		bool getValue(const std::string& key, T& msg)
 		{
-			if (m_recvText == nullptr) {
-				LOGERROR("getValue m_recvText == nullptr.");
+			if (m_sendText == nullptr) {
+				LOGERROR("getValue m_sendText == nullptr.");
 				return false;
 			}
 
@@ -176,16 +154,20 @@ namespace redis
 		bool ping();
 
 	protected:
-		// recv
+		// recv/send
 		redisContext* m_recvText;
-		// send
 		redisContext* m_sendText;
+		// recv/send cluster
+		redisContext* m_recvClusterConn;
+		redisContext* m_sendClusterConn;
 
 		//<channelId, channel>
 		stl_map<std::string, Chan*> m_mapChan;
 	
 		std::string m_ip;
 		int32 m_port;
+
+		bool m_cluster;
 
 		uv_thread_t m_thread;
 	};

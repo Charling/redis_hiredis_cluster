@@ -113,7 +113,7 @@ namespace redis
 		auto it = m_mapChan.begin();
 		for (; it != m_mapChan.end(); ++it)
 		{
-			redisReply* reply = (redisReply *)redisCommand(m_recvText, "SUBSCRIBE %s", it->first.c_str());
+			redisReply* reply = (redisReply *)redisCommand(m_sendText, "SUBSCRIBE %s", it->first.c_str());
 			if (reply != nullptr && REDIS_REPLY_ERROR == reply->type) {
 				LOGERROR("redis subscribe channel:%s error:%s!", it->first.c_str(), reply->str);
 				return false;
