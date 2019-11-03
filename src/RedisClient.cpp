@@ -12,13 +12,10 @@ namespace redis
 	{
 		m_recvText = nullptr;
 		m_sendText = nullptr;
-		m_recvClusterConn = nullptr;
-		m_sendClusterConn = nullptr;
 		m_mapChan.clear();
 
 		m_ip = "";
 		m_port = 0;
-		m_cluster = false;
 	}
 
 	RedisClient::~RedisClient()
@@ -34,12 +31,12 @@ namespace redis
 
 	bool RedisClient::start()
 	{
-		uv_thread_create(&m_thread, &RedisClient::redisclient, (void*)this);
+		uv_thread_create(&m_thread, &RedisClient::redisClient, (void*)this);
 
 		return true;
 	}
 
-	void RedisClient::redisclient(void* client)
+	void RedisClient::redisClient(void* client)
 	{
 		RedisClient* obj = (RedisClient*)client;
 		if (obj == nullptr) {
@@ -72,7 +69,7 @@ namespace redis
 			BASE::dSleep(1000);
 		}
 
-		LOGWARN("Subscriber server stop...");
+		LOGWARN("redisClient server stop...");
 		if (obj->m_recvText != nullptr) {
 			redisFree(obj->m_recvText);
 		}

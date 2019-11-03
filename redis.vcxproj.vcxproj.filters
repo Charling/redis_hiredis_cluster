@@ -4,7 +4,10 @@
     <Filter Include="hiredis">
       <UniqueIdentifier>{ff15e70f-dfe3-481e-ad4a-8b0ce1f3da5c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="redisClusterConn">
+    <Filter Include="redis">
+      <UniqueIdentifier>{d570d189-e4df-45f1-a4cd-e30d57b86ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clusterRedis">
       <UniqueIdentifier>{46752932-7d03-4004-967f-a287c4932c90}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -24,14 +27,25 @@
     <ClInclude Include="include\zmalloc.h">
       <Filter>hiredis</Filter>
     </ClInclude>
-    <ClInclude Include="include\Chan.h" />
-    <ClInclude Include="include\RedisClient.h" />
-    <ClInclude Include="include\RedisData.h" />
     <ClInclude Include="include\RedisMgr.h" />
-    <ClInclude Include="include\Subscriber.h" />
+    <ClInclude Include="include\Chan.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisClient.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisData.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Subscriber.h">
+      <Filter>redis</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RedisClusterClient.h">
+      <Filter>clusterRedis</Filter>
+    </ClInclude>
     <ClInclude Include="include\RedisDefData.h" />
     <ClInclude Include="include\redisClusterConn.h">
-      <Filter>redisClusterConn</Filter>
+      <Filter>clusterRedis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,12 +61,21 @@
     <ClCompile Include="src\zmalloc.c">
       <Filter>hiredis</Filter>
     </ClCompile>
-    <ClCompile Include="src\Chan.cpp" />
-    <ClCompile Include="src\RedisClient.cpp" />
     <ClCompile Include="src\RedisMgr.cpp" />
-    <ClCompile Include="src\Subscriber.cpp" />
+    <ClCompile Include="src\Chan.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RedisClient.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Subscriber.cpp">
+      <Filter>redis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RedisClusterClient.cpp">
+      <Filter>clusterRedis</Filter>
+    </ClCompile>
     <ClCompile Include="src\redisClusterConn.cpp">
-      <Filter>redisClusterConn</Filter>
+      <Filter>clusterRedis</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

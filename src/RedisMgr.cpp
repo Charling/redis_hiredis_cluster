@@ -8,6 +8,7 @@ namespace redis
 		: m_subscriber(nullptr)
 	{
 		m_subscriber = safeCreateObject(Subscriber);
+		m_redisClusterClient = safeCreateObject(RedisClusterClient);
 		m_redisClient = safeCreateObject(RedisClient);
 
 		setPollingEnable(true);
@@ -16,6 +17,7 @@ namespace redis
 	RedisMgr::~RedisMgr()
 	{
 		safeDeleteObject(m_subscriber, Subscriber);
+		safeDeleteObject(m_redisClusterClient, RedisClusterClient);
 		safeDeleteObject(m_redisClient, RedisClient);
 	}
 
@@ -49,14 +51,20 @@ namespace redis
 		return true;
 	}
 
+	bool RedisMgr::startCluster(stl_vector<stRedisClusterCfg>& cfgs)
+	{
+		m_redisClusterClient->init(cfgs);
+		if (!m_subscriber->start())
+			return false;
+		return true;
+	}
+
 	void RedisMgr::polling()
 	{
 		if (m_subscriber == nullptr || m_redisClient == nullptr)
 			return;
 
-		//	LOGERROR("RedisMgr::polling begin");
  		m_subscriber->polling();
- 		m_redisClient->polling();
-		//	LOGERROR("RedisMgr::polling end");
+		m_redisClient->polling();
 	}
 } // namespace redis

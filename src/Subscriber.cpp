@@ -109,6 +109,10 @@ namespace redis
 
 	bool Subscriber::subscribe()
 	{
+		if (m_sendText == nullptr) {
+			return false;
+		}
+
 		// mutex
 		auto it = m_mapChan.begin();
 		for (; it != m_mapChan.end(); ++it)
@@ -129,6 +133,10 @@ namespace redis
 
 	bool Subscriber::publish(const std::string& chan, const char* data, int size)
 	{
+		if (m_sendText == nullptr) {
+			return false;
+		}
+
 		IF_NOT_RETURN_VALUE(data, false);
 	
 		// publish %s %s

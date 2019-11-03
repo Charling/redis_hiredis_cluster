@@ -2,40 +2,45 @@
 /**
 * @file	 : RedisClusterClient.h
 * @author : Charling(查灵)/56430114@qq.com
-* created : 2018-08-23 20:03
-* purpose : redis基础类
+* created : 2019-11-03 20:03
+* purpose : redis集群基础类
 */
 //==========================================================================
-#ifndef __redis_client_h__
-#define __redis_client_h__
+#ifndef __RedisClusterClient_h__
+#define __RedisClusterClient_h__
 
 #include "RedisData.h"
 #include "Chan.h"
 #include "Function.h"
+#include "redisClusterConn.h"
 
 namespace redis
 {
-	class RedisClient
+	struct stRedisClusterCfg {
+		std::string ip;
+		int port;
+
+		stRedisClusterCfg() {
+			clear();
+		}
+
+		inline void clear() {
+			ip = "";
+			port = 0;
+		}
+	};
+
+	class RedisClusterClient
 	{
 	public:
-		RedisClient();
-		virtual ~RedisClient();
+		RedisClusterClient();
+		virtual ~RedisClusterClient();
 		virtual bool start();
-		virtual void dispatch(redisContext* c, const stRedisData& redisData);
-		virtual void polling();
 
 	public:
-		void init(const char* ip, int port);
+		void init(stl_vector<stRedisClusterCfg>& cfgs);
 
-		bool registerChan(Chan* chan);
-		void unregisterChan(const std::string& chanId);
-
-		bool connect(redisContext** c);
-		bool reconnect(redisContext** c);
-
-		int parse(redisReply* r, stRedisData& redisData, int32 idx);
-
-		void registerOps(int32 ops, ops_handler func);
+		bool connect();
 
 		static void redisClient(void* client);
 
@@ -45,11 +50,6 @@ namespace redis
 		template<typename T>
 		bool setValue(const std::string& key, const T& msg)
 		{
-			if (m_sendText == nullptr) {
-				LOGERROR("setValue m_sendText == nullptr.");
-				return false;
-			}
-
 			auto size = msg.ByteSize();
 			auto data = (char*)allocateMemory(size);
 			if (!msg.SerializeToArray(data, size)) {
@@ -68,7 +68,7 @@ namespace redis
 			memset(argv, 0, sizeof(char*) * cnt);
 
 			int32 i = 0;
-			argvLen[i] = strlen("SET"); 
+			argvLen[i] = strlen("SET");
 			argv[i] = (char*)allocateMemory(argvLen[i]);
 			memset(argv[i], 0, argvLen[i]);
 			memcpy(argv[i], "SET", argvLen[i]);
@@ -85,7 +85,7 @@ namespace redis
 			memset(argv[i], 0, argvLen[i]);
 			memcpy(argv[i], data, size);
 
-			redisReply* reply = (redisReply *)redisCommandArgv(m_sendText, cnt, (const char**)argv, argvLen);
+			redisReply* reply = (redisReply *)RedisClusterConn::redisClusterConnCommand(&m_sendText, cnt, (const char**)argv, argvLen);
 
 			// free memory
 			deallocateMemory(argvLen);
@@ -104,12 +104,7 @@ namespace redis
 		template<typename T>
 		bool getValue(const std::string& key, T& msg)
 		{
-			if (m_sendText == nullptr) {
-				LOGERROR("getValue m_sendText == nullptr.");
-				return false;
-			}
-
-			auto reply = (redisReply*)redisCommand(m_sendText, "GET %s", key.c_str());
+			auto reply = (redisReply*)RedisClusterConn::redisClusterConnCommand(&m_sendText, "GET %s", key.c_str());
 			if (reply == nullptr) {
 				LOGERROR("getValue reply == nullptr...");
 				return false;
@@ -150,19 +145,13 @@ namespace redis
 		bool ping();
 
 	protected:
-		// recv/send
-		redisContext* m_recvText;
-		redisContext* m_sendText;
+		// send
+		redisClusterConn m_sendText;
 
-		//<channelId, channel>
-		stl_map<std::string, Chan*> m_mapChan;
-	
-		std::string m_ip;
-		int32 m_port;
-
+		stl_vector<stRedisClusterCfg> m_cfgs;
 		uv_thread_t m_thread;
 	};
 
 } //end namespace redis
 
-#endif // __redis_client_h__
+#endif // __RedisClusterClient_h__

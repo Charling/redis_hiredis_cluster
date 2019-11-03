@@ -9,7 +9,7 @@
 
 namespace redis
 {
-	int redisClusterConnInit(redisClusterConn* conn, int maxNodes, const char * password, int connTimeMs, int dataTimeoMs)
+	int redisClusterConnInit(redisClusterConn* conn, int maxNodes, const char* password, int connTimeMs, int dataTimeoMs)
 	{
 		size_t authlen = 0;
 
@@ -173,7 +173,7 @@ namespace redis
 		return 0;
 	}
 
-	redisReply* redisClusterConnCommand(redisClusterConn* conn, int argc, const char** argv, const size_t* argvlen)
+	redisReply* redisClusterConnCommand(redisClusterConn* conn, int argc, char** argv, size_t* argvlen)
 	{
 		redisReply* reply = nullptr;
 		redisContext* ctx = redisClusterConnGetActiveContext(conn, 0, 0);
@@ -181,7 +181,7 @@ namespace redis
 			return nullptr;
 		}
 
-		reply = (redisReply *)redisCommandArgv(ctx, argc, argv, argvlen);
+		reply = (redisReply *)redisCommandArgv(ctx, argc, (const char**)argv, argvlen);
 		if (!reply) {
 			// 执行失败, 连接不能再被使用. 必须建立新连接!!
 			redisClusterConnCloseNode(conn, conn->node->index);
@@ -215,7 +215,7 @@ namespace redis
 			}
 
 			if (strstr(reply->str, "NOAUTH ")) {
-				const char * cmds[] = {
+				char * cmds[] = {
 					"AUTH",
 					conn->password
 				};

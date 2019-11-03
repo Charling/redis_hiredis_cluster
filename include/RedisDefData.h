@@ -16,6 +16,7 @@
 
 namespace redis
 {
+#define MaxRedisKey 64
 
 
 } //end namespace redis
