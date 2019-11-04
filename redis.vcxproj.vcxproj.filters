@@ -7,9 +7,6 @@
     <Filter Include="redis">
       <UniqueIdentifier>{d570d189-e4df-45f1-a4cd-e30d57b86ca6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="clusterRedis">
-      <UniqueIdentifier>{46752932-7d03-4004-967f-a287c4932c90}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\adlist.h">
@@ -40,13 +37,7 @@
     <ClInclude Include="include\Subscriber.h">
       <Filter>redis</Filter>
     </ClInclude>
-    <ClInclude Include="include\RedisClusterClient.h">
-      <Filter>clusterRedis</Filter>
-    </ClInclude>
     <ClInclude Include="include\RedisDefData.h" />
-    <ClInclude Include="include\redisClusterConn.h">
-      <Filter>clusterRedis</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\adlist.c">
@@ -70,12 +61,6 @@
     </ClCompile>
     <ClCompile Include="src\Subscriber.cpp">
       <Filter>redis</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RedisClusterClient.cpp">
-      <Filter>clusterRedis</Filter>
-    </ClCompile>
-    <ClCompile Include="src\redisClusterConn.cpp">
-      <Filter>clusterRedis</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

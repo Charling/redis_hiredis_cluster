@@ -24,8 +24,6 @@
     <ClInclude Include="include\Chan.h" />
     <ClInclude Include="include\Overflow.h" />
     <ClInclude Include="include\RedisClient.h" />
-    <ClInclude Include="include\RedisClusterClient.h" />
-    <ClInclude Include="include\redisClusterConn.h" />
     <ClInclude Include="include\RedisData.h" />
     <ClInclude Include="include\RedisDefData.h" />
     <ClInclude Include="include\RedisMgr.h" />
@@ -38,8 +36,6 @@
     <ClCompile Include="src\ae.c" />
     <ClCompile Include="src\Chan.cpp" />
     <ClCompile Include="src\RedisClient.cpp" />
-    <ClCompile Include="src\RedisClusterClient.cpp" />
-    <ClCompile Include="src\redisClusterConn.cpp" />
     <ClCompile Include="src\RedisMgr.cpp" />
     <ClCompile Include="src\Subscriber.cpp" />
     <ClCompile Include="src\win32fixes.c" />

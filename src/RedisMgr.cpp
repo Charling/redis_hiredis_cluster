@@ -8,7 +8,6 @@ namespace redis
 		: m_subscriber(nullptr)
 	{
 		m_subscriber = safeCreateObject(Subscriber);
-		m_redisClusterClient = safeCreateObject(RedisClusterClient);
 		m_redisClient = safeCreateObject(RedisClient);
 
 		setPollingEnable(true);
@@ -17,7 +16,6 @@ namespace redis
 	RedisMgr::~RedisMgr()
 	{
 		safeDeleteObject(m_subscriber, Subscriber);
-		safeDeleteObject(m_redisClusterClient, RedisClusterClient);
 		safeDeleteObject(m_redisClient, RedisClient);
 	}
 
@@ -40,10 +38,6 @@ namespace redis
 
 	bool RedisMgr::start(const std::string& ip, int port)
 	{
-		m_subscriber->init(ip.c_str(), port);
-		if (!m_subscriber->start())
-			return false;
-
 		m_redisClient->init(ip.c_str(), port);
 		if (!m_redisClient->start())
 			return false;
@@ -51,20 +45,23 @@ namespace redis
 		return true;
 	}
 
-	bool RedisMgr::startCluster(stl_vector<stRedisClusterCfg>& cfgs)
+	bool RedisMgr::startPubsub(const std::string& ip, int port) 
 	{
-		m_redisClusterClient->init(cfgs);
+		m_subscriber->init(ip.c_str(), port);
 		if (!m_subscriber->start())
 			return false;
+
 		return true;
 	}
 
 	void RedisMgr::polling()
 	{
-		if (m_subscriber == nullptr || m_redisClient == nullptr)
-			return;
-
- 		m_subscriber->polling();
-		m_redisClient->polling();
+		if (m_subscriber != nullptr) {
+			m_subscriber->polling();
+		}
+		
+		if (m_redisClient != nullptr) {
+			m_redisClient->polling();
+		}
 	}
 } // namespace redis

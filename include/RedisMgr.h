@@ -13,7 +13,6 @@
 #include "SingletonEx.h"
 #include "Subscriber.h"
 #include "Service.h"
-#include "RedisClusterClient.h"
 
 namespace redis
 {
@@ -31,17 +30,15 @@ namespace redis
 
 		static void Register(int ops, ops_handler handler);
 		bool start(const std::string& ip, int port);
-		bool startCluster(stl_vector<stRedisClusterCfg>& cfgs);
+		bool startPubsub(const std::string& ip, int port);
 		void registerChan(const std::string& index);
 
 		inline Subscriber* getSubscriber() { return m_subscriber; }
 		inline RedisClient* getRedisClient() { return m_redisClient; }
-		inline RedisClusterClient* getRedisClusterClient() { return m_redisClusterClient; }
 
 	  private:
 		Subscriber* m_subscriber;
 		RedisClient* m_redisClient;
-		RedisClusterClient* m_redisClusterClient;
 	};
 
 } //end namespace redis
